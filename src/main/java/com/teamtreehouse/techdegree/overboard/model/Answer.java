@@ -1,4 +1,6 @@
-package com.teamtreehouse.techdegree.overboard.model;
+package main.java.com.teamtreehouse.techdegree.overboard.model;
+
+import main.java.com.teamtreehouse.techdegree.overboard.*;
 
 public class Answer extends Post {
     private Question question;

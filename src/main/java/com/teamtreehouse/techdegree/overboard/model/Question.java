@@ -1,4 +1,4 @@
-package com.teamtreehouse.techdegree.overboard.model;
+package main.java.com.teamtreehouse.techdegree.overboard.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

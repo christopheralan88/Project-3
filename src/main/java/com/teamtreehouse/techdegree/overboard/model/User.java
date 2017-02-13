@@ -1,7 +1,8 @@
-package com.teamtreehouse.techdegree.overboard.model;
+package main.java.com.teamtreehouse.techdegree.overboard.model;
 
-import com.teamtreehouse.techdegree.overboard.exc.AnswerAcceptanceException;
-import com.teamtreehouse.techdegree.overboard.exc.VotingException;
+import main.java.com.teamtreehouse.techdegree.overboard.exc.AnswerAcceptanceException;
+import main.java.com.teamtreehouse.techdegree.overboard.exc.VotingException;
+
 
 import java.util.Collections;
 import java.util.List;
