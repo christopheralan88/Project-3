@@ -1,4 +1,4 @@
-package com.teamtreehouse.techdegree.overboard.exc;
+package main.java.com.teamtreehouse.techdegree.overboard.exc;
 
 public class VotingException extends RuntimeException {
 
