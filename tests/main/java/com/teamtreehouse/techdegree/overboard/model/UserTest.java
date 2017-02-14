@@ -12,7 +12,7 @@ public class UserTest {
 
     @Before
     public void setUp() throws Exception {
-        Board board = new Board("Java");
+        board = new Board("Java");
     }
 
     @Test
