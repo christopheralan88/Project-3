@@ -1,9 +1,13 @@
-package main.java.com.teamtreehouse.techdegree.overboard.model;
+package com.teamtreehouse.techdegree.overboard.model;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import com.teamtreehouse.techdegree.overboard.model.Board;
+import com.teamtreehouse.techdegree.overboard.model.Question;
+import com.teamtreehouse.techdegree.overboard.model.User;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class UserTest {
