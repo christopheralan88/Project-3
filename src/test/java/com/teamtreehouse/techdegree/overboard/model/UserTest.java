@@ -3,9 +3,6 @@ package com.teamtreehouse.techdegree.overboard.model;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.teamtreehouse.techdegree.overboard.model.Board;
-import com.teamtreehouse.techdegree.overboard.model.Question;
-import com.teamtreehouse.techdegree.overboard.model.User;
 
 import static org.junit.Assert.assertEquals;
 
