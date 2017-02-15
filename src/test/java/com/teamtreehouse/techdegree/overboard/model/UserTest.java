@@ -5,6 +5,7 @@ import org.junit.Test;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 
@@ -46,5 +47,15 @@ public class UserTest {
 
         // Assert
         assertEquals(10, reputation);
+    }
+
+    @Test
+    public void userReputationIncreasesWhenAnswerIsAccepted() {
+        Answer answer = anotherUser.answerQuestion(question, "Python");
+
+        me.acceptAnswer(answer);
+        int reputation = anotherUser.getReputation();
+
+        assertEquals(15, reputation);
     }
 }
