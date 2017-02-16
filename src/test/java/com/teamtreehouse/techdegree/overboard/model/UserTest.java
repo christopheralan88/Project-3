@@ -14,8 +14,8 @@ public class UserTest {
 
     private Answer answer;
     private Board board;
-    private User me;
-    private User anotherUser;
+    private User questioner;
+    private User answerer;
     private Question question;
 
     @Rule
@@ -24,71 +24,81 @@ public class UserTest {
     @Before
     public void setUp() throws Exception {
         board = new Board("Java");
-        me = new User(board, "me");
-        anotherUser = new User(board, "another user");
-        question = me.askQuestion("What is your favorite programming language?");
-        answer = anotherUser.answerQuestion(question, "Python");
+        questioner = new User(board, "questioner");
+        answerer = new User(board, "answerer");
+        question = questioner.askQuestion("What is your favorite programming language?");
+        answer = answerer.answerQuestion(question, "Python");
     }
 
     @Test
     public void userReputationIncreasesWhenQuestionIsUpvoted() throws Exception {
         // Act
-        anotherUser.upVote(question);
+        answerer.upVote(question);
 
         // Assert
-        assertEquals(5, me.getReputation());
+        assertEquals(5, questioner.getReputation());
     }
 
     @Test
     public void userReputationIncreasesWhenAnswerIsUpvoted() throws Exception {
-        me.upVote(answer);
+        questioner.upVote(answer);
 
-        assertEquals(10, anotherUser.getReputation());
+        assertEquals(10, answerer.getReputation());
     }
 
     @Test
     public void userReputationIncreasesWhenAnswerIsAccepted() throws Exception {
-        me.acceptAnswer(answer);
+        questioner.acceptAnswer(answer);
 
-        assertEquals(15, anotherUser.getReputation());
+        assertEquals(15, answerer.getReputation());
     }
 
     @Test(expected = VotingException.class)
     public void upvotingUsersOwnQuestionThrowsException() throws Exception {
-        me.upVote(question);
+        questioner.upVote(question);
     }
 
     @Test(expected = VotingException.class)
     public void downvotingUsersOwnQuestionThrowsException() throws Exception {
-        me.downVote(question);
+        questioner.downVote(question);
+    }
+
+    @Test(expected = VotingException.class)
+    public void upvotingUsersOwnAnswerThrowsException() throws Exception {
+        answerer.upVote(answer);
+    }
+
+    @Test(expected = VotingException.class)
+    public void downvotingUsersOwnAnswerThrowsException() throws Exception {
+        answerer.downVote(answer);
     }
 
     @Test
     public void userOtherThanQuestionerCannotAcceptAnswer() throws Exception {
         thrown.expect(AnswerAcceptanceException.class);
-        thrown.expectMessage("Only me can accept this answer as it is their question");
+        thrown.expectMessage("Only questioner can accept this answer as it is their question");
 
-        anotherUser.acceptAnswer(answer);
+        answerer.acceptAnswer(answer);
     }
 
     @Test
     public void questionerCanAcceptAnswer() throws Exception {
-        me.acceptAnswer(answer);
+        questioner.acceptAnswer(answer);
 
         assertTrue(answer.isAccepted());
     }
 
     @Test
     public void userReputationDecreasesWhenAnswerIsDownvoted() throws Exception {
-        me.downVote(answer);
+        questioner.downVote(answer);
 
-        assertEquals(-1, anotherUser.getReputation());
+        assertEquals(-1, answerer.getReputation());
     }
 
     @Test
     public void userReputationDecreasesWhenQuestionIsDownvoted() throws Exception {
-        anotherUser.downVote(question);
+        answerer.downVote(question);
 
-        assertEquals(-1, me.getReputation());
+        assertEquals(-1, questioner.getReputation());
     }
 }
