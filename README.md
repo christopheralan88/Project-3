@@ -1,6 +1,8 @@
 ## Welcome to Stack Overboard
 
-This is a WIP (Work In Progress) but the basic idea is this:
+## NOTE:  My contribution to this project is unit testing one of the project classes.  My tests are found in the UserTest.java file.  I made one other change to the source files at line 66 in the User class.
+
+This is a WIP (Work In Progress) but the basic idea is below.
 
 ```java
 // A board is a topic area on a bulletin board
@@ -35,6 +37,6 @@ System.out.println("Bob: " + bob.getReputation()); // Bob's answer got upvoted (
 ```
 
 ## TODO
-[ ] TESTS!
+[X] TESTS!
 [ ] Use a data store!
 [ ] Build the website surrounding this awesome model
